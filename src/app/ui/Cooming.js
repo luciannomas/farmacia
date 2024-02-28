@@ -49,15 +49,14 @@ const Page = () => {
             sx={{ mb: 3 }}
             variant="h3"
           >
-            404: The page you are looking for isn’t here
+            We are working to get <box style= {{ color: 'blue'}}>Farmax</box> ready in a short time ...
           </Typography>
           <Typography
             align="center"
             color="text.secondary"
             variant="body1"
           >
-            You either tried some shady route or you came here by mistake.
-            Whichever it is, try using the navigation
+            Go ahead... log in!!!
           </Typography>
           <Button
             component={NextLink}
