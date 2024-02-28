@@ -7,11 +7,11 @@ import Cooming from './ui/Cooming'
 
 export default function Home() {
   const { data: session, status } = useSession();
-  console.log("session, ", session)
+  //console.log("session, ", session)
 
   return (
     <>
-    <Cooming/>
+      <Cooming/>
     </>
   );
 }

@@ -34,14 +34,14 @@ export const ListItems = () => {
                 </ListItemIcon>
                 <ListItemText primary="Profile" />
             </ListItemButton>
-            <ListItemButton onClick={() => { router.push("/dashboard/categories") }} >
+            <ListItemButton /* onClick={() => { router.push("/dashboard/categories") }} */ >
                 <ListItemIcon>
                     {/* <DashboardIcon /> */}
                     <CategoryOutlinedIcon/>
                 </ListItemIcon>
                 <ListItemText primary="Categories" />
             </ListItemButton>
-            <ListItemButton onClick={() => { router.push("/dashboard/products") }}>
+            <ListItemButton /* onClick={() => { router.push("/dashboard/products") }} */>
                 <ListItemIcon>
                     <ShoppingCartIcon />
                 </ListItemIcon>
