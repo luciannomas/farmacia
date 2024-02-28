@@ -64,7 +64,7 @@ export default function page() {
     return (
         <DashLayout>
 
-            <Box>
+            <Box sx={{ margin: '18px'}}>
                 {/* <Typography style ={{ marginTop: '10px', marginLeft: '10px'}}> Tabla </Typography> */}
                 <MUIDataTable
                     title={"Employee List"}

@@ -28,7 +28,8 @@ function Categories() {
           component="main"
           sx={{
             flexGrow: 1,
-            py: 8
+            py: 8,
+            paddingTop: '16px'
           }}
         >
           <Container maxWidth="lg">
