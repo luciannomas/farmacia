@@ -41,7 +41,7 @@ export const ListItems = () => {
                 </ListItemIcon>
                 <ListItemText primary="Categories" />
             </ListItemButton>
-            <ListItemButton /* onClick={() => { router.push("/dashboard/products") }} */>
+            <ListItemButton onClick={() => { router.push("/dashboard/products") }}>
                 <ListItemIcon>
                     <ShoppingCartIcon />
                 </ListItemIcon>
