@@ -23,6 +23,17 @@ const ProductSchema = new Schema(
       required: [true, "The property 'stock' is required "],
       trim: true
     },
+    expires: {
+      type: Date,
+      required: [true, "The property 'expires' is required "],
+      trim: true
+
+    },
+    laboratories: {
+      type: [String],
+      required : [true, "The property 'laboratories' is required "],
+      trim: true
+    },
     categoryId: {
         type: String,
         required: [true, "The property 'categoyId' is required "],

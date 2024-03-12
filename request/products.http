@@ -11,10 +11,12 @@ POST {{apiLocal}}/api/products
 Content-type: application/json
 
  {
-    "name": "actron azul",
-    "price": 77,
+    "name": "migral vi",
+    "price": 800,
     "image": "5",
     "stock": 9,
+    
+    "laboratories": ["martinez", "rodriguez"],
     "categoryId": "632e59669b026568ad8abbce"
  }
 
