@@ -106,3 +106,8 @@ a {
   }
 }
  */
+
+ /* TODO: para que no figuro el scroll visible */
+ ::-webkit-scrollbar {
+  display: none;
+}
