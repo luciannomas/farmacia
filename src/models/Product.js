@@ -18,6 +18,11 @@ const ProductSchema = new Schema(
         type: String,
         trim: true
     },
+    stock: {
+      type: Number,
+      required: [true, "The property 'stock' is required "],
+      trim: true
+    },
     categoryId: {
         type: String,
         required: [true, "The property 'categoyId' is required "],

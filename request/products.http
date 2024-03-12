@@ -1,0 +1,36 @@
+@apiLocal = http://localhost:3000
+
+@apiVercel = https://farmax.vercel.app/
+
+
+###
+GET {{apiLocal}}/api/productos/63349dc5f553fbfc64657df4
+
+###
+POST {{apiLocal}}/api/products
+Content-type: application/json
+
+ {
+    "name": "actron azul",
+    "price": 77,
+    "image": "5",
+    "stock": 9,
+    "categoryId": "632e59669b026568ad8abbce"
+ }
+
+
+###
+PUT {{apiLocal}}/api/productos/6331e674b55387020b7f469e 
+Content-type: application/json
+
+ {
+    "name": "hamburguesas",
+    "price": 97,
+    "image": "3",
+    "categoryId": "632e59669b026568ad8abbce"
+ }
+
+
+###
+DELETE https://zafirus-c.herokuapp.com/users/62c2249fe35b235a0161368b
+
