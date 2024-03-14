@@ -14,6 +14,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useRouter } from "next/navigation";
+import axios, { AxiosError } from "axios";
 
 function Copyright(props) {
     return (
@@ -37,22 +38,19 @@ export default function SignInSide() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        /* const data = new FormData(event.currentTarget);
-        console.log({
-          email: data.get('email'),
-          password: data.get('password'),
-        }); */
-
         const formData = new FormData(event.currentTarget);
-        /* const res = await signIn("credentials", {
+        
+        const signupResponse = await axios.post("/api/auth/login", {
             email: formData.get("email"),
             password: formData.get("password"),
-            redirect: false,
-        }); */
+            fullname: formData.get("fullname"),
+          });
 
-        if (res?.error) setError(res.error);
+        return router.push("/dashboard");
+        
+        /* if (res?.error) setError(res.error);
 
-        if (res?.ok) return router.push("/dashboard");
+        if (res?.ok) return router.push("/dashboard"); */
 
     };
 
@@ -115,7 +113,7 @@ export default function SignInSide() {
                                 control={<Checkbox value="remember" color="primary" />}
                                 label="Remember me"
                             /> */}
-                            {error && <div style={{color: 'red'}}>{error}</div>}
+                            {error && <div style={{ color: 'red' }}>{error}</div>}
                             <Button
                                 type="submit"
                                 fullWidth
