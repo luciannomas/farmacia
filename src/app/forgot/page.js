@@ -38,9 +38,9 @@ export default function SignInSide() {
 
     /* const { data: session, status } = useSession(); */
 
-    if (session) {
+    /* if (session) {
         return router.push('/dashboard/profile');
-    }
+    } */
 
     const handleSubmit = async (event) => {
         event.preventDefault();
