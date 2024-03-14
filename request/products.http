@@ -1,10 +1,10 @@
 @apiLocal = http://localhost:3000
 
-@apiVercel = https://farmax.vercel.app/
+@apiVercel = https://farmax.vercel.app
 
 
 ###
-GET {{apiLocal}}/api/productos/63349dc5f553fbfc64657df4
+GET {{apiVercel}}/api/products
 
 ###
 POST {{apiLocal}}/api/products
@@ -15,9 +15,18 @@ Content-type: application/json
     "price": 800,
     "image": "5",
     "stock": 9,
-    
+    "expires": "12/10/2025",
     "laboratories": ["martinez", "rodriguez"],
     "categoryId": "632e59669b026568ad8abbce"
+ }
+
+###
+POST {{apiVercel}}/api/forgot
+Content-type: application/json
+
+ {
+    "email": "lucano@gmail.com",
+    "password": 800
  }
 
 
