@@ -12,14 +12,10 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import CategoryOutlinedIcon from '@mui/icons-material/CategoryOutlined';
 import { useRouter } from "next/navigation";
-import { useSession, signOut } from "next-auth/react";
-
 
 export const ListItems = () => {
     const router = useRouter();
-    const { data: session, status } = useSession();
-
-    // console.log(session, status);
+  
     return (
         <React.Fragment>
             <ListItemButton onClick={() => { router.push("/dashboard") }} >
@@ -53,7 +49,7 @@ export const ListItems = () => {
                 </ListItemIcon>
                 <ListItemText primary="Reports" />
             </ListItemButton>
-            <ListItemButton onClick={() => { signOut() }}>
+            <ListItemButton >
                 <ListItemIcon>
                     <LogoutIcon />
                 </ListItemIcon>

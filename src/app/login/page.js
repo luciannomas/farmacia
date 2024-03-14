@@ -13,7 +13,6 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 function Copyright(props) {
@@ -36,12 +35,6 @@ export default function SignInSide() {
     const [error, setError] = useState("");
     const router = useRouter();
 
-    const { data: session, status } = useSession();
-
-    if (session) {
-        return router.push('/dashboard/profile');
-    }
-
     const handleSubmit = async (event) => {
         event.preventDefault();
         /* const data = new FormData(event.currentTarget);
@@ -51,11 +44,11 @@ export default function SignInSide() {
         }); */
 
         const formData = new FormData(event.currentTarget);
-        const res = await signIn("credentials", {
+        /* const res = await signIn("credentials", {
             email: formData.get("email"),
             password: formData.get("password"),
             redirect: false,
-        });
+        }); */
 
         if (res?.error) setError(res.error);
 

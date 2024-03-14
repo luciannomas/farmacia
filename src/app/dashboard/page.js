@@ -1,14 +1,10 @@
 "use client";
-import { useSession, signOut } from "next-auth/react";
 import DashLayout from '../ui/layouts/DashLayout/page'
 import Typography  from '@mui/material/Typography';
 
 
 function DashboardPage() {
-  const { data: session, status } = useSession();
-
-  console.log(session, status);
-
+ 
   return (
     <DashLayout>
         
