@@ -7,6 +7,8 @@ import { AccountProfileDetails } from '../../ui/sections/account/account-profile
 import 'simplebar-react/dist/simplebar.min.css';
 import { ThemeProvider } from '@mui/material/styles';
 import { createTheme } from '../../ui/theme/cooming';
+import axios, { AxiosError } from "axios";
+import { useRouter } from "next/navigation";
 
 const style = {
   position: 'absolute',
@@ -19,8 +21,29 @@ const style = {
   boxShadow: 24,
   p: 4,
 };
+
+const getProfile = async () => {
+  const profile = await axios.get("/api/profile");
+  console.log("profile", profile)
+};
+
+
+
 function Categories() {
   const theme = createTheme();
+  const router = useRouter();
+
+  const logout = async () => {
+  
+    try {
+      const res = await axios.get("/api/auth/logout");
+      console.log(res);
+    } catch (error) {
+      console.error(error.message);
+    }
+    router.push("/login");
+  };
+  
   return (
     <DashLayout>
       <ThemeProvider theme={theme}>
@@ -57,6 +80,8 @@ function Categories() {
                     lg={8}
                   >
                     <AccountProfileDetails />
+                    <button onClick={() => getProfile()}>profile</button>
+                    <button onClick={() => logout()}>Logout</button>
                   </Grid>
                 </Grid>
               </div>

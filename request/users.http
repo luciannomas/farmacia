@@ -9,6 +9,27 @@ Content-type: application/json
 
  {
     "fullname": "luciano",
-    "email": "test26@smail.com",
+    "email": "test30@smail.com",
     "password": "12345678"
+ }
+
+
+
+###
+POST {{apiLocal}}/api/auth/login
+Content-type: application/json
+
+ {
+    "email": "test30@smail.com",
+    "password": "12345678"
+ }
+
+
+###
+GET {{apiLocal}}/api/profile
+Content-type: application/json
+
+ {
+    "email": "lucano@gmail.com",
+    "password": "luciano123"
  }

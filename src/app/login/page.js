@@ -14,6 +14,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useRouter } from "next/navigation";
+import axios, { AxiosError } from "axios";
 
 function Copyright(props) {
     return (
@@ -42,13 +43,22 @@ export default function SignInSide() {
           email: data.get('email'),
           password: data.get('password'),
         }); */
-
         const formData = new FormData(event.currentTarget);
+        
+        const signupResponse = await axios.post("/api/auth/login", {
+            email: formData.get("email"),
+            password: formData.get("password"),
+            fullname: formData.get("fullname"),
+          });
+
+        return router.push("/dashboard");
         const res = await signIn("credentials", {
             email: formData.get("email"),
             password: formData.get("password"),
             redirect: false,
         });
+
+
 
         if (res?.error) setError(res.error);
 
