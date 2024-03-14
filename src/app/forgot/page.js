@@ -13,7 +13,6 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-// import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 function Copyright(props) {

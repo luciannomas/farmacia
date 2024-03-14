@@ -3,7 +3,7 @@ import { FormEvent, useState } from "react";
 import { AxiosError } from "axios";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { useSession } from "next-auth/react";
+//import { useSession } from "next-auth/react";
 
 function Signin() {
   const [error, setError] = useState("");
