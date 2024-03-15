@@ -5,21 +5,7 @@ import mongoose from "mongoose";
 
 export async function GET()  {
   try {
-    const cookieStore = cookies();
-    const token = cookieStore.get("myTokenName");
-
-
-    if (!token) {
-      return NextResponse.json({ error: "Not logged in" }, { status: 401 });
-    }
-
-    // console.log("very",jwt.verify(token.value, "TOKEN_SECRET"))
-    const { email, id } = jwt.verify(token.value, "TOKEN_SECRET");
-
-    return NextResponse.json({
-      email,
-      id,
-    });
+   console.log("ok")
   } catch (error) {
     if (error instanceof mongoose.Error.ValidationError) {
       return NextResponse.json(
