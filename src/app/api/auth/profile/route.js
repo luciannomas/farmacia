@@ -1,8 +1,12 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 
-export function GET() {
+import { connectDB } from "@/libs/mongodb";
+
+export async function GET() {
+
     try {
+        await connectDB();
         const cookieStore = cookies();
         const token = cookieStore.get("myTokenName");
         console.log("entro!!")
