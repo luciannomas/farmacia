@@ -11,13 +11,13 @@ export function GET() {
             return NextResponse.json({ error: "Not logged in" }, { status: 401 });
         }
 
-        /* // console.log("very",jwt.verify(token.value, "TOKEN_SECRET"))
+        // console.log("very",jwt.verify(token.value, "TOKEN_SECRET"))
         const { email, id } = jwt.verify(token.value, "TOKEN_SECRET");
 
         return NextResponse.json({
             email,
             id,
-        }); */
+        });
 
         const response = NextResponse.json(
             {},
