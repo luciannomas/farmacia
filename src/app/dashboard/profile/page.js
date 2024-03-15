@@ -24,6 +24,11 @@ const style = {
 function Categories() {
   const theme = createTheme();
   const router = useRouter();
+
+  const getProfile = async () => {
+    const profile = await axios.get("/api/auth/profile");
+    console.log("profile", profile)
+  };
   
   const logout = async () => {
 
@@ -72,7 +77,7 @@ function Categories() {
                     lg={8}
                   >
                     <AccountProfileDetails />
-                    <button onClick={() => console.log("ok")}>data</button>
+                    <button onClick={() => getProfile()}>profile</button>
                     <button onClick={() => logout()}>Logout</button>
                   </Grid>
                 </Grid>

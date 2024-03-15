@@ -1,16 +1,17 @@
+// el force dinamic es para aclarar que la pagina no es sincronica sino dinamica al usar cookies
 export const dynamic = "force-dynamic";
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
+import jwt from "jsonwebtoken";
 
 import { connectDB } from "@/libs/mongodb";
 
 export async function GET() {
 
     try {
-        await await connectDB();
+        await connectDB();
         const cookieStore = cookies();
         const token = cookieStore.get("myTokenName");
-        console.log("entro!!")
 
         if (!token) {
             return NextResponse.json({ error: "Not logged in" }, { status: 401 });
@@ -23,13 +24,6 @@ export async function GET() {
             email,
             id,
         });
-
-        const response = NextResponse.json(
-            {},
-            {
-              status: 200,
-            }
-          );
 
     } catch (error) {
         console.log(error);
