@@ -1,9 +1,9 @@
+import { NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
 import { cookies } from "next/headers";
-import { NextResponse } from "next/server";
 import mongoose from "mongoose";
 
-export function GET() {
+export async function GET()  {
   try {
     const cookieStore = cookies();
     const token = cookieStore.get("myTokenName");
