@@ -26,7 +26,7 @@ function Categories() {
   const router = useRouter();
 
   const logout = async () => {
-  
+
     try {
       const res = await axios.get("/api/auth/logout");
       console.log(res);
@@ -77,12 +77,15 @@ function Categories() {
                     lg={8}
                   >
                     <AccountProfileDetails />
-                    <button onClick={() => getProfile()}>profile</button>
-                    <button onClick={() => logout()}>Logout</button>
+
                   </Grid>
                 </Grid>
               </div>
             </Stack>
+            <div>
+              <button onClick={() => getProfile()}>profile</button>
+              <button onClick={() => logout()}>Logout</button>
+            </div>
           </Container>
         </Box>
       </ThemeProvider>
