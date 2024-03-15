@@ -57,6 +57,8 @@ function Categories() {
                     lg={8}
                   >
                     <AccountProfileDetails />
+                    <button onClick={() => console.log("ok")}>data</button>
+                    <button onClick={() => console.log("ok")}>Logout</button>
                   </Grid>
                 </Grid>
               </div>
