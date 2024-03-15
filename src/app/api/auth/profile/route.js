@@ -8,7 +8,7 @@ import { connectDB } from "@/libs/mongodb";
 export async function GET() {
 
     try {
-        await connectDB();
+        await await connectDB();
         const cookieStore = cookies();
         const token = cookieStore.get("myTokenName");
         console.log("entro!!")
