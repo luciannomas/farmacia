@@ -4,13 +4,13 @@
 
 
 ###
-POST {{apiVercel}}/api/auth/register
+POST {{apiLocal}}/api/auth/register
 Content-type: application/json
 
  {
     "fullname": "luciano",
-    "email": "test33@smail.com",
-    "password": "12345678"
+    "email": "lucano2@smail.com",
+    "password": "luciano123"
  }
 
 
@@ -25,6 +25,7 @@ Content-type: application/json
  }
 
 
+
 ###
 GET {{apiLocal}}/api/profile
 Content-type: application/json
@@ -33,3 +34,15 @@ Content-type: application/json
     "email": "lucano@gmail.com",
     "password": "luciano123"
  }
+
+
+
+
+###
+PUT {{apiLocal}}/api/auth/forget
+Content-type: application/json
+
+ {
+    "email": "lucano2@smail.com"
+ }
+

@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 import { connectDB } from "@/libs/mongodb";
 import bcrypt from "bcryptjs";
 import mongoose from "mongoose";
-import User from "@/models/user";
+import User from "@/models/User";
 import { createAccessToken } from '../../../../libs/jwt';
 import { cookies } from 'next/headers'
 

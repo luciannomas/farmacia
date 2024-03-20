@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { connectDB } from "@/libs/mongodb";
 import bcrypt from "bcryptjs";
 import mongoose from "mongoose";
-import User from "@/models/user";
+import User from "@/models/User";
 import { createAccessToken } from '../../../../libs/jwt';
 import { sign } from "jsonwebtoken";
 import { serialize } from 'cookie';
@@ -12,6 +12,7 @@ export async function POST(request) {
     try {
         await connectDB();
         const { fullname, email, password } = await request.json();
+        console.log("password", password)
 
         const userFound = await User.findOne({ email });
 

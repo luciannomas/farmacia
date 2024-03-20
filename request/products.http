@@ -4,7 +4,7 @@
 
 
 ###
-GET {{apiLocal}}/api/productos/63349dc5f553fbfc64657df4
+GET {{apiLocal}}/api/products
 
 ###
 POST {{apiLocal}}/api/products
@@ -22,13 +22,15 @@ Content-type: application/json
 
 
 ###
-PUT {{apiLocal}}/api/productos/6331e674b55387020b7f469e 
+PUT {{apiLocal}}/api/products/65f0b3e536d857aa5140c175 
 Content-type: application/json
 
  {
-    "name": "hamburguesas",
-    "price": 97,
-    "image": "3",
+    "name": "migral evop",
+    "price": 60,
+    "stock": 2,
+    "laboratories": [1,2],
+    "expires": "12-08-2020",
     "categoryId": "632e59669b026568ad8abbce"
  }
 

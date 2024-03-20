@@ -29,13 +29,15 @@ export async function GET(request, { params }) {
 
 export async function PUT(request, { params }) {
   const body = await request.json();
+  console.log("params.id", body)
+  
   connectDB();
 
   try {
     const productUpdated = await Product.findByIdAndUpdate(params.id, body, {
       new: true,
     });
-
+    
     if (!productUpdated)
       return NextResponse.json(
         {

@@ -1,0 +1,26 @@
+@apiLocal = http://localhost:3000
+
+@apiVercel = https://farmax.vercel.app/
+
+
+###
+POST {{apiLocal}}/api/auth/session
+Content-type: application/json
+
+ {
+    "fullname": "luciano",
+    "email": "lucano2@smail.com",
+    "password": "luciano123"
+ }
+
+ 
+
+###
+PUT {{apiLocal}}/api/auth/session
+Content-type: application/json
+
+ {
+    "fullname": "luciano",
+    "email": "lucanox@smail.com",
+    "password": "luciano123"
+ }
