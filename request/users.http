@@ -9,7 +9,7 @@ Content-type: application/json
 
  {
     "fullname": "luciano",
-    "email": "lucano2@smail.com",
+    "email": "lucano4@smail.com",
     "password": "luciano123"
  }
 
@@ -43,6 +43,6 @@ PUT {{apiLocal}}/api/auth/forget
 Content-type: application/json
 
  {
-    "email": "lucano2@smail.com"
+    "email": "lucano4@smail.com"
  }
 

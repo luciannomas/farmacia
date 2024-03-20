@@ -6,17 +6,24 @@ const UserSchema = new Schema(
       type: String,
       unique: true,
       required: [true, "Email is required"],
-      trim: true
+      trim: true,
+      match: [
+        /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+        "Email is invalid",
+      ],
     },
     password: {
       type: String,
       required: [true, "Password is required"],
-      trim: true
+      trim: true,
+      select: false,
     },
     fullname: {
       type: String,
       required: [true, "fullname is required"],
-      trim: true
+      trim: true,
+      minLength: [3, "fullname must be at least 3 characters"],
+      maxLength: [20, "fullname must be at most 20 characters"],
     },
     resetToken: {
       type: String,
