@@ -12,7 +12,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import CategoryOutlinedIcon from '@mui/icons-material/CategoryOutlined';
 import { useRouter } from "next/navigation";
-
+import axios, { AxiosError } from "axios";
 
 export const ListItems = () => {
     const router = useRouter();
@@ -22,9 +22,11 @@ export const ListItems = () => {
         try {
           const res = await axios.get("/api/auth/logout");
           console.log(res);
+          router.push("/login")
         } catch (error) {
           console.error(error.message);
         }
+        console.log(error)
         router.push("/login");
       };
 
