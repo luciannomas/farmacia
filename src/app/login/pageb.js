@@ -1,16 +1,12 @@
 "use client";
 import { FormEvent, useState } from "react";
 import { AxiosError } from "axios";
-import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { useSession } from "next-auth/react";
+
 
 function Signin() {
   const [error, setError] = useState("");
   const router = useRouter();
-
-  const { data: session, status } = useSession();
-  console.log("hola", session);
 
     if(session){
         return router.push('/dashboard/profile');
@@ -19,13 +15,14 @@ function Signin() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
-    const res = await signIn("credentials", {
+    
+    /* const res = await signIn("credentials", {
       email: formData.get("email"),
       password: formData.get("password"),
       redirect: false,
     });
 
-    if (res?.error) setError(res.error);
+    if (res?.error) setError(res.error); */
 
     if (res?.ok) return router.push("/dashboard/profile");
   };
