@@ -1,5 +1,4 @@
 "use client";
-import { useState } from "react";
 import DashLayout from '../../ui/layouts/DashLayout/page'
 import { Box, Container, Stack, Typography, Unstable_Grid2 as Grid } from '@mui/material';
 import { AccountProfile } from '../../ui/sections/account/account-profile';
@@ -7,6 +6,9 @@ import { AccountProfileDetails } from '../../ui/sections/account/account-profile
 import 'simplebar-react/dist/simplebar.min.css';
 import { ThemeProvider } from '@mui/material/styles';
 import { createTheme } from '../../ui/theme/cooming';
+import axios, { AxiosError } from "axios";
+import { useRouter } from "next/navigation";
+
 
 const style = {
   position: 'absolute',
@@ -21,6 +23,14 @@ const style = {
 };
 function Categories() {
   const theme = createTheme();
+  const router = useRouter();
+
+  const getProfile = async () => {
+    const profile = await axios.get("/api/auth/profile");
+    console.log("profile", profile)
+    
+  };
+
   return (
     <DashLayout>
       <ThemeProvider theme={theme}>
@@ -57,6 +67,7 @@ function Categories() {
                     lg={8}
                   >
                     <AccountProfileDetails />
+                    <button onClick={() => getProfile()}>profile</button>
                   </Grid>
                 </Grid>
               </div>
