@@ -17,6 +17,17 @@ import { useRouter } from "next/navigation";
 export const ListItems = () => {
     const router = useRouter();
 
+    const logout = async () => {
+
+        try {
+          const res = await axios.get("/api/auth/logout");
+          console.log(res);
+        } catch (error) {
+          console.error(error.message);
+        }
+        router.push("/login");
+      };
+
     // console.log(session, status);
     return (
         <React.Fragment>
@@ -51,7 +62,7 @@ export const ListItems = () => {
                 </ListItemIcon>
                 <ListItemText primary="Reports" />
             </ListItemButton>
-            <ListItemButton /* onClick={() => { signOut() }} */>
+            <ListItemButton onClick={() => { logout() }}>
                 <ListItemIcon>
                     <LogoutIcon />
                 </ListItemIcon>

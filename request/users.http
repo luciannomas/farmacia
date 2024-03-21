@@ -4,12 +4,12 @@
 
 
 ###
-POST {{apiLocal}}/api/auth/register
+POST {{apiVercel}}/api/auth/register
 Content-type: application/json
 
  {
     "fullname": "luciano",
-    "email": "lucano4@smail.com",
+    "email": "lucano@smail.com",
     "password": "luciano123"
  }
 
@@ -20,7 +20,7 @@ POST {{apiLocal}}/api/auth/login
 Content-type: application/json
 
  {
-    "email": "lucano4@smail.com",
+    "email": "lucano@smail.com",
     "password": "luciano123"
  }
 
