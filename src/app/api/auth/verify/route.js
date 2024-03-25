@@ -26,7 +26,7 @@ export async function POST(request) {
         return new NextResponse("Invalid token or has expired", { status: 400 });
        }
 
-       return new NextResponse(JSON.stringify(user), { status: 400 });
+       return new NextResponse(JSON.stringify(user), { status: 200 });
         
 
     } catch (error) {
