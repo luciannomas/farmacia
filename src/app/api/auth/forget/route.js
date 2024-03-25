@@ -51,13 +51,17 @@ export async function PUT(request) {
         const passwordResetExpires = Date.now(20) + 3600000; 
 
         //update to base
-        body.resetToken = passwordResetToken;
+        body.resetToken = 'TEST';
         body.resetTokenExpiry = passwordResetExpires; 
         
         // body.resetToken = 'resetToken__';
         const UserUpdated = await User.findByIdAndUpdate(UserFound._id.toString(), body, {
             new: true,
         });
+
+        //build url reset
+        const resetUrl = `locahost:3000/reset-password/${resetToken}`;
+        console.log("resetUrl", resetUrl);
 
         if (!UserUpdated)
             return NextResponse.json(
