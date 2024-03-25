@@ -13,13 +13,12 @@ export async function POST(request) {
     try {
         await connectDB();
         const { fullname, email, password } = await request.json();
-        console.log("password", password)
 
         const userFound = await User.findOne({ email });
 
         if (password.length < 8)
             return NextResponse.json(
-                { message: "Password must be at least 6 characters" },
+                { message: "Password must be at least 7 characters" },
                 { status: 400 }
             );
 
@@ -27,6 +26,13 @@ export async function POST(request) {
             return NextResponse.json({
                 message: ["The email is already in use"],
             }, { status: 400 });
+        
+            if (fullname.length < 3 || fullname === null)
+            return NextResponse.json(
+                { message: "Fullname must be at leat 3 characters" },
+                { status: 400 }
+            );
+        
 
         // hashing the password
         const passwordHash = await bcrypt.hash(password, 10);
