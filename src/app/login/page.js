@@ -53,7 +53,8 @@ export default function SignInSide() {
 
             return router.push("/dashboard");
         } catch (error) {
-            console.log(error);
+            setError(error.response.data.message[0]);
+            console.log(error.response.data.message[0]);
         }
 
     };
@@ -128,13 +129,13 @@ export default function SignInSide() {
                             </Button>
                             <Grid container>
                                 <Grid item xs>
-                                    <Link href="#" variant="body2">
+                                    <Link href="forget" variant="body2">
                                         Forgot password?
                                     </Link>
                                 </Grid>
                                 <Grid item>
-                                    <Link href="#" variant="body2">
-                                        {"Don't have an account? Sign Up"}
+                                    <Link href="register" variant="body2">
+                                        {"Register"}
                                     </Link>
                                 </Grid>
                             </Grid>

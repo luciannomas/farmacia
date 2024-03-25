@@ -28,9 +28,9 @@ export async function PUT(request) {
     const { email } = body;
 
     connectDB();
-
+    
     const UserFound = await User.findOne({ email });
-
+    
     if (!UserFound)
         return NextResponse.json({
             message: ["The email does not exist"],
