@@ -1,8 +1,9 @@
 import User from "../../../../models/User";
 import { NextResponse } from "next/server";
 import { connectDB } from '@/libs/mongodb';
+import crypto from 'crypto';
 
-export async function GET() {
+/* export async function GET() {
     await connectDB();
     const users = await User.find();
     return NextResponse.json(users);
@@ -21,7 +22,7 @@ export async function POST(request) {
         });
     }
 }
-
+ */
 export async function PUT(request) {
     const body = await request.json();
     const { email } = body;
@@ -36,8 +37,24 @@ export async function PUT(request) {
         }, { status: 400 });
 
     try {
+        
+        const resetToken = crypto.randomBytes(20).toString("hex");
+        const resetTokenExpiry = new Date();
 
-        body.resetToken = 'resetToken__';
+        // lo encrypta (sha256 clave, cambiarla)
+        const passwordResetToken = crypto
+            .createHash("sha256") 
+            .update(resetToken)
+            .digest("hex");
+
+        // expira en una hora 
+        const passwordResetExpires = Date.now(20) + 3600000; 
+
+        //update to base
+        body.resetToken = passwordResetToken;
+        body.resetTokenExpiry = passwordResetExpires; 
+        
+        // body.resetToken = 'resetToken__';
         const UserUpdated = await User.findByIdAndUpdate(UserFound._id.toString(), body, {
             new: true,
         });

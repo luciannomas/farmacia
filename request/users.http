@@ -28,7 +28,7 @@ Content-type: application/json
 
 
 ###
-GET {{apiLocal}}//api/auth/logout
+GET {{apiLocal}}/api/auth/logout
 Content-type: application/json
 
 
@@ -46,7 +46,7 @@ Content-type: application/json
 
 
 ###
-PUT {{apiVercel}}/api/auth/forget
+PUT {{apiLocal}}/api/auth/forget
 Content-type: application/json
 
  {
