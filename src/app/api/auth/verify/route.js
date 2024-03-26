@@ -1,24 +1,25 @@
 'use server'
 import { NextResponse } from "next/server";
 import { connectDB } from "@/libs/mongodb";
-import bcrypt from "bcryptjs";
 import mongoose from "mongoose";
 import User from "../../../../models/User";
-import { createAccessToken } from '../../../../libs/jwt';
-import { cookies } from 'next/headers'
+import jwt from "jsonwebtoken";
 
 export async function POST(request) {
     try {
         
         const { token } = await request.json();
-        console.log("llega token? ", token)
         await connectDB();
         
-        // const hash = crypto.createHash("sha256").update('TEST').digest("hex");
+        //verify token con clave unica
+        const { email } = jwt.verify(token, "TOKEN_SECRET");
 
+        //otra manera verify
+        //const hash = crypto.createHash("sha256").update(token).digest("hex");
         
         const user = await User.findOne({
-            resetToken: 'TEST',
+            email: email,
+            resetToken: token,
             resetTokenExpiry: { $gt: Date.now() }
         })
 

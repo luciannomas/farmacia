@@ -8,8 +8,6 @@ export async function POST(request) {
     try {
 
         const { email, password } = await request.json();
-        console.log("email", email);
-        console.log("password", password);
         await connectDB();
 
         const userFound = await User.findOne({ email });

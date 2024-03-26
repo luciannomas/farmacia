@@ -55,7 +55,7 @@ export default function ResetPassword({ params }) {
                 const res = await axios.post("/api/auth/verify", {
                     token: params.token
                 });
-                console.log("res", res)
+                
                 if (res.status == 400) {
                     setError("Invalid token or has expired");
                     setVerify(true);

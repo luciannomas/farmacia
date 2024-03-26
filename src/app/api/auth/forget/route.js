@@ -1,6 +1,7 @@
 import User from "../../../../models/User";
 import { NextResponse } from "next/server";
 import { connectDB } from '@/libs/mongodb';
+import { createAccessToken } from '../../../../libs/jwt';
 import crypto from 'crypto';
 
 /* export async function GET() {
@@ -37,30 +38,32 @@ export async function PUT(request) {
         }, { status: 400 });
 
     try {
-        
+        /* // Crea token y lo cifra (old version)
         const resetToken = crypto.randomBytes(20).toString("hex");
-        const resetTokenExpiry = new Date();
 
         // lo encrypta (sha256 clave, cambiarla)
-        const passwordResetToken = crypto
+         const passwordResetToken = crypto
             .createHash("sha256") 
             .update(resetToken)
-            .digest("hex");
-
-        // expira en una hora 
+            .digest("hex"); */ 
+        
+        //Guardamos token cifrado con clave unica (otra forma de crear el token)
+        const token = await createAccessToken({ email });
+        
+        //Expira en una hora 
         const passwordResetExpires = Date.now(20) + 3600000; 
 
         //update to base
-        body.resetToken = 'TEST';
+        body.resetToken = token;
         body.resetTokenExpiry = passwordResetExpires; 
         
-        // body.resetToken = 'resetToken__';
+        //Update
         const UserUpdated = await User.findByIdAndUpdate(UserFound._id.toString(), body, {
             new: true,
         });
 
         //build url reset
-        const resetUrl = `locahost:3000/reset-password/${resetToken}`;
+        const resetUrl = `http://localhost:3000/reset/${token}`;
         console.log("resetUrl", resetUrl);
 
         if (!UserUpdated)

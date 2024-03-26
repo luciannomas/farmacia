@@ -9,7 +9,7 @@ Content-type: application/json
 
  {
     "fullname": "luciano",
-    "email": "lucano3@smail.com",
+    "email": "lucano13@smail.com",
     "password": "luciano123"
  }
 
@@ -50,7 +50,7 @@ PUT {{apiLocal}}/api/auth/forget
 Content-type: application/json
 
  {
-    "email": "lucano3@smail.com"
+    "email": "lucano13@smail.com"
  }
 
 
@@ -60,7 +60,7 @@ POST {{apiLocal}}/api/auth/verify
 Content-type: application/json
 
  {
-    "token": "f595438ecb8567a976e1a3885b1aacd5f49bb33d"
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imx1Y2FubzEzQHNtYWlsLmNvbSIsImlhdCI6MTcxMTQyNTEzNSwiZXhwIjoxNzExNTExNTM1fQ.SOiTxqnkzWN4uPuVvF6vobLiUjhdPcvf9wQy_NQyGjU"
  }
 
 
@@ -71,6 +71,6 @@ POST {{apiLocal}}/api/auth/reset
 Content-type: application/json
 
  {
-    "email": "lucano3@smail.com",
+    "email": "lucano@smail.com",
     "password": "luciano123"
  }
